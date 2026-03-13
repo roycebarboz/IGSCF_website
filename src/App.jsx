@@ -1,23 +1,16 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Welcome from './components/Welcome'
-import Programs from './components/Programs'
-import Gallery from './components/Gallery'
-import Connect from './components/Connect'
-import Testimonials from './components/Testimonials'
-import Footer from './components/Footer'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home/Home'
+import ForStudents from './pages/ForStudents'
+import About from './pages/About/About'
+import Donors from './pages/Donors/Donors'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#faf6f0]">
-      <Navbar />
-      <Hero />
-      <Welcome />
-      <Programs />
-      <Gallery />
-      <Connect />
-      <Testimonials />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/students" element={<ForStudents />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/donors" element={<Donors />} />
+    </Routes>
   )
 }

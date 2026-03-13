@@ -1,4 +1,4 @@
-const socialLinks = [
+export const socialLinks = [
   {
     name: 'WhatsApp',
     href: 'https://chat.whatsapp.com/EAySnZYJZHZ5PB39a25ix2',
@@ -41,30 +41,26 @@ const socialLinks = [
   },
 ]
 
-export default function Connect() {
+export default function SocialIcons({ links = socialLinks }) {
   return (
-    <section className="bg-[#faf6f0] py-14 px-8 text-center">
-      <p className="text-[#e89c2f] text-xs font-semibold uppercase tracking-widest mb-2">Connect</p>
-      <h2 className="text-2xl font-bold text-[#2c1a0e] mb-10">Join Our Community Groups</h2>
-      <div className="flex items-center justify-center gap-10">
-        {socialLinks.map((s) => (
-          <a
-            key={s.name}
-            href={s.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center gap-2 group"
+    <div className="flex items-center justify-center gap-10">
+      {links.map((s) => (
+        <a
+          key={s.name}
+          href={s.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center gap-2 group"
+        >
+          <div
+            className="w-14 h-14 rounded-full flex items-center justify-center shadow-md group-hover:opacity-90 transition-opacity"
+            style={{ background: s.bg }}
           >
-            <div
-              className="w-14 h-14 rounded-full flex items-center justify-center shadow-md group-hover:opacity-90 transition-opacity"
-              style={{ background: s.bg }}
-            >
-              {s.icon}
-            </div>
-            <span className="text-xs text-[#7a6555] font-medium">{s.name}</span>
-          </a>
-        ))}
-      </div>
-    </section>
+            {s.icon}
+          </div>
+          <span className="text-xs text-[#7a6555] font-medium">{s.name}</span>
+        </a>
+      ))}
+    </div>
   )
 }

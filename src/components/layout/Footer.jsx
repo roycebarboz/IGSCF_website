@@ -1,4 +1,5 @@
-import logoImg from '../assets/logo.jpg'
+import { Link } from 'react-router-dom'
+import logoImg from '../../assets/logos/logo.jpg'
 
 export default function Footer() {
   return (
@@ -27,7 +28,7 @@ export default function Footer() {
         <div className="flex items-center gap-1 text-sm text-white">
           <a href="#about" className="hover:text-[#e89c2f] transition-colors px-2">About Us</a>
           <span className="text-white/40">|</span>
-          <a href="#students" className="hover:text-[#e89c2f] transition-colors px-2">Students</a>
+          <Link to="/students" className="hover:text-[#e89c2f] transition-colors px-2">Students</Link>
           <span className="text-white/40">|</span>
           <a href="#donors" className="hover:text-[#e89c2f] transition-colors px-2">Donors</a>
         </div>

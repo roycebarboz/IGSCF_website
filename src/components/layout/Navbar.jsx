@@ -1,9 +1,10 @@
-import logoImg from '../assets/logo.jpg'
+import { Link } from 'react-router-dom'
+import logoImg from '../../assets/logos/logo.jpg'
 
 export default function Navbar() {
   return (
     <nav className="bg-[#3d1f0f] px-8 py-3 flex items-center justify-between">
-      <div className="flex items-center gap-3">
+      <Link to="/" className="flex items-center gap-3">
         <img
           src={logoImg}
           alt="IGSCF Logo"
@@ -14,18 +15,18 @@ export default function Navbar() {
           <div>Stevens Christian Fellowship –</div>
           <div>Hoboken, NJ</div>
         </div>
-      </div>
+      </Link>
 
       <div className="flex items-center gap-6">
-        <a href="#about" className="text-white text-sm hover:text-[#e89c2f] transition-colors">About</a>
-        <a href="#home" className="text-white text-sm hover:text-[#e89c2f] transition-colors">Home</a>
-        <a href="#students" className="text-white text-sm hover:text-[#e89c2f] transition-colors">For Students</a>
-        <a
-          href="#donors"
+        <Link to="/#about" className="text-white text-sm hover:text-[#e89c2f] transition-colors">About</Link>
+        <Link to="/" className="text-white text-sm hover:text-[#e89c2f] transition-colors">Home</Link>
+        <Link to="/students" className="text-white text-sm hover:text-[#e89c2f] transition-colors font-semibold text-[#e89c2f]">For Students</Link>
+        <Link
+          to="/#donors"
           className="bg-[#e89c2f] text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-[#f0b84a] transition-colors"
         >
           For Donors
-        </a>
+        </Link>
       </div>
     </nav>
   )

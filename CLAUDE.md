@@ -1,137 +1,226 @@
-# React Website Design Recreation
+# IGSCF Website – Development Guidelines
 
-## Workflow
+This document explains how AI tools and developers should structure and implement UI for the IGSCF website.
 
-When the user provides a reference image (screenshot) and optionally some CSS classes or style notes:
+The goal is to keep the codebase **clean, modular, and easy for future student developers to maintain**.
 
-### 1. Generate React UI
+---
 
-Create a React component implementation
+## Tech Stack
 
-Typical structure:
+- **Framework:** React (Vite)
+- **Styling:** Tailwind CSS
+- **Language:** JavaScript (`.jsx`)
+
+---
+
+## Project Architecture
+
+Follow this directory structure strictly.
 
 ```
 src/
-  App.jsx
+  assets/
+    images/
+    icons/
+    logos/
+
   components/
-    Header.jsx
-    Hero.jsx
-    Features.jsx
-    Footer.jsx
+    layout/
+      Navbar.jsx
+      Footer.jsx
+    ui/
+      Button.jsx
+      Card.jsx
+      SectionTitle.jsx
+    social/
+      SocialIcons.jsx
+
+  pages/
+    Home/
+      Home.jsx
+      sections/
+        Hero.jsx
+        Welcome.jsx
+        Programs.jsx
+        Gallery.jsx
+        Connect.jsx
+        Testimonials.jsx
+
+    ForStudents/
+      index.jsx
+      sections/
+        FridayNights.jsx
+        SpecialEvents.jsx
+        HomeGroups.jsx
+        EnglishClass.jsx
+        Volunteer.jsx
+
+    About/
+      About.jsx
+
+    Donors/
+      Donors.jsx
+
+  data/
+    testimonials.js
+    events.js
+    programs.js
+
+  App.jsx
   main.jsx
   index.css
 ```
 
-Guidelines:
+---
 
-- Break UI into reusable components
-- Use semantic HTML
-- Keep components readable
-- Prefer Tailwind utility classes
+## Page Composition Rules
+
+Each page should be built from **section components**.
+
+Example (`Home.jsx`):
+
+```jsx
+<Navbar />
+<Hero />
+<Welcome />
+<Programs />
+<Gallery />
+<Connect />
+<Testimonials />
+<Footer />
+```
+
+Do NOT place large JSX blocks directly inside page files.
+
+Each section must live in:
+
+```
+pages/PageName/sections/
+```
 
 ---
 
-## Screenshot Self‑Correction Loop
+## Component Guidelines
 
-After generating the React UI, you MUST run a **visual verification loop**.
-
-### Step 1 — Render
-
-Run the React app locally.
-
-Example:
-
-```
-npm run dev
-```
-
-### Step 2 — Screenshot
-
-Take a screenshot of the rendered page using Puppeteer or Playwright.
-
-Example:
-
-```
-npx puppeteer screenshot http://localhost:5173 --fullPage
-```
-
-If the page has major sections (hero, pricing, features, etc.), capture screenshots of those sections as well.
-
----
-
-### Step 3 — Compare With Reference
-
-Compare the screenshot with the provided reference image.
-
-Look for mismatches in:
-
-- Spacing and padding (px differences)
-- Font size, weight, and line height
-- Colors (exact hex values)
-- Alignment
-- Grid or flex layouts
-- Border radius
-- Shadows
-- Image sizes
-- Icon placement
-- Section heights
-- Responsive layout
-
-Be extremely specific when identifying issues.
-
-Example:
-
-- "Hero heading is ~40px but reference is closer to 32px"
-- "Gap between cards should be 24px but is 16px"
-- "Button border radius looks 6px instead of 8px"
-
----
-
-### Step 4 — Fix the Code
-
-Update the React components and Tailwind classes to fix every issue.
+Use components for UI elements reused across **multiple pages**.
 
 Examples:
 
-- Adjust spacing: `gap-4 → gap-6`
-- Adjust font size: `text-3xl → text-2xl`
-- Fix alignment: `items-start → items-center`
-- Fix width/height: `w-full → max-w-5xl`
+- Button
+- Card
+- SectionTitle
+- Navbar
+- Footer
+
+Reusable components go in:
+
+```
+components/ui/
+```
+
+Layout components go in:
+
+```
+components/layout/
+```
 
 ---
 
-### Step 5 — Re‑Screenshot
+## Content Data
 
-Take another screenshot of the updated UI.
+Text content that may change frequently should NOT be hardcoded inside components.
+
+Instead store it in:
 
 ```
-npx puppeteer screenshot http://localhost:5173 --fullPage
+src/data/
 ```
 
----
+Examples:
 
-### Step 6 — Repeat
+- `testimonials.js`
+- `events.js`
+- `programs.js`
 
-Repeat the cycle:
-
-**Screenshot → Compare → Fix → Screenshot**
-
-At least **2 full comparison rounds are required**.
-
-Continue until:
-
-- Visual differences are minimal
-- Layout matches reference within ~2–3px
-
-Do NOT stop after the first implementation.
+Components should import data and map through it.
 
 ---
 
 ## Styling Rules
 
-- Use Tailwind CSS classes inside JSX
-- Avoid separate CSS files unless necessary
-- Mobile‑first responsive design
+- Use Tailwind CSS classes directly in JSX
+- Avoid large external CSS files unless necessary
+- Use mobile-first responsive design
+
+Example:
+
+```jsx
+className="px-6 py-3 bg-orange-500 text-white rounded-lg"
+```
+
+---
+
+## Screenshot Self-Correction Loop
+
+When recreating UI from screenshots, run a visual verification loop.
+
+### Step 1 — Run the app
+
+```
+npm run dev
+```
+
+### Step 2 — Take screenshot
+
+```
+npx puppeteer screenshot http://localhost:5173 --fullPage
+```
+
+If the page has major sections (hero, programs, gallery, etc.), capture screenshots of those sections as well.
+
+### Step 3 — Compare with reference
+
+Check for:
+
+- Spacing and padding
+- Font sizes and weights
+- Colors (exact hex values)
+- Alignment
+- Grid or flex layouts
+- Border radius
+- Shadows
+- Section heights
+- Responsive layout
+
+Be extremely specific when identifying issues.
+
+Examples:
+
+- "Hero heading is ~40px but reference is closer to 32px"
+- "Gap between cards should be 24px but is 16px"
+- "Button border radius looks 6px instead of 8px"
+
+### Step 4 — Fix the code
+
+Update the React components and Tailwind classes to fix every issue.
+
+Examples:
+
+- Adjust spacing: `gap-4` → `gap-6`
+- Adjust font size: `text-3xl` → `text-2xl`
+- Fix alignment: `items-start` → `items-center`
+- Fix width/height: `w-full` → `max-w-5xl`
+
+### Step 5 — Re-screenshot and repeat
+
+Take another screenshot and compare again.
+
+At least **2 full comparison rounds are required**.
+
+Continue until visual differences are minimal and the layout matches the reference within ~2–3px.
+
+Do NOT stop after the first implementation.
 
 ---
 
@@ -145,53 +234,23 @@ https://placehold.co/
 
 Example:
 
-```
+```jsx
 <img src="https://placehold.co/600x400" />
 ```
 
 ---
 
-## Technical Defaults
+## Important Rules
 
-Framework: React  
-Styling: Tailwind CSS  
-File format: `.jsx`
-
-Mobile‑first responsive design.
-
----
-
-## Rules
-
-- Do NOT add sections not present in the reference image
-- Do NOT redesign the UI
-- Match the screenshot as closely as possible
-- Use provided CSS classes verbatim
+- Do NOT redesign the UI — match the provided reference
+- Do NOT merge sections into a single component
+- Follow the folder structure exactly
+- Each page section must be its own component
 - Keep components simple and readable
-
----
-
-## Example Component
-
-```jsx
-export default function Hero() {
-  return (
-    <section className="py-20 text-center">
-      <h1 className="text-4xl font-bold">Hero Title</h1>
-      <p className="mt-4 text-gray-600">
-        Short description here
-      </p>
-      <button className="mt-6 px-6 py-3 bg-black text-white rounded-lg">
-        Get Started
-      </button>
-    </section>
-  )
-}
-```
+- Use provided CSS classes verbatim when given
 
 ---
 
 ## Goal
 
-Recreate the design **pixel‑accurately** using React + Tailwind with an automated **screenshot feedback loop for self‑correction**.
-
+Create a maintainable React codebase that future student developers can easily understand and extend, while matching design references **pixel-accurately** using a **screenshot feedback loop for self-correction**.

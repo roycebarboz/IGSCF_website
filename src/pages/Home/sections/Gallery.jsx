@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback } from 'react'
 
-import p1 from '../assets/gallery_photos/IMG-20250901-WA0002.jpg'
-import p2 from '../assets/gallery_photos/IMG-20250906-WA0009.jpg'
-import p3 from '../assets/gallery_photos/IMG-20250927-WA0009.jpg'
-import p4 from '../assets/gallery_photos/IMG-20251128-WA0000.jpg'
-import p5 from '../assets/gallery_photos/IMG-20251128-WA0041.jpg'
-import p6 from '../assets/gallery_photos/IMG-20260208-WA0011.jpg'
+import p1 from '../../../assets/images/gallery_photos/IMG-20250901-WA0002.jpg'
+import p2 from '../../../assets/images/gallery_photos/IMG-20250906-WA0009.jpg'
+import p3 from '../../../assets/images/gallery_photos/IMG-20250927-WA0009.jpg'
+import p4 from '../../../assets/images/gallery_photos/IMG-20251128-WA0000.jpg'
+import p5 from '../../../assets/images/gallery_photos/IMG-20251128-WA0041.jpg'
+import p6 from '../../../assets/images/gallery_photos/IMG-20260208-WA0011.jpg'
 
 const photos = [p1, p2, p3, p4, p5, p6]
 

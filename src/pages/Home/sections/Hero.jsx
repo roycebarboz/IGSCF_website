@@ -1,9 +1,11 @@
+import videoSrc from '../../../assets/images/IS_video.mp4'
+
 export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden" style={{ minHeight: '220px' }}>
       <video
         className="w-full h-auto block object-contain"
-        src="src/assets/IS_video.mp4"
+        src={videoSrc}
         autoPlay
         muted
         loop
