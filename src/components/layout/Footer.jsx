@@ -18,9 +18,9 @@ export default function Footer() {
               <div>Stevens Christian Fellowship</div>
               <div>Hoboken, NJ</div>
             </div>
-            <a href="#privacy" className="text-white/60 text-xs hover:underline mt-0.5 block">
+            <Link to="/privacy" className="text-white/60 text-xs hover:underline mt-0.5 block">
               Privacy Policy
-            </a>
+            </Link>
           </div>
         </div>
 

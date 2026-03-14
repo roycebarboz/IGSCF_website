@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Navbar from '../../components/layout/Navbar'
 import Footer from '../../components/layout/Footer'
 import ScrollReveal from '../../components/ui/ScrollReveal'
@@ -19,6 +20,16 @@ const navLinks = [
 
 export default function ForStudents() {
   const [activeId, setActiveId] = useState('friday')
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace('#', '')
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+    }
+  }, [hash])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
