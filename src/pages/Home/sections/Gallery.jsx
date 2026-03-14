@@ -30,7 +30,7 @@ export default function Gallery() {
     <section className="bg-[#f0ebe4] py-12 px-8">
       <div className="max-w-5xl mx-auto">
         <p className="text-[#a32638] text-xs font-semibold uppercase tracking-widest mb-1">Gallery</p>
-        <h2 className="text-3xl font-bold text-[#2c1a0e] mb-8">Community Photos</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-[#2c1a0e] mb-8">Community Photos</h2>
 
         <div className="relative flex items-center justify-center">
           {/* Prev button */}
@@ -45,7 +45,7 @@ export default function Gallery() {
           {/* Photo frame */}
           <div
             className="w-full overflow-hidden rounded-2xl shadow-lg"
-            style={{ maxWidth: '720px', height: '500px' }}
+            style={{ maxWidth: '720px', height: 'clamp(220px, 50vw, 500px)' }}
           >
             <img
               key={current}

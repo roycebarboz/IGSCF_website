@@ -18,15 +18,15 @@ export default function FridayNights() {
     <section className="py-12 px-8">
       <div className="max-w-5xl mx-auto">
         <p className="text-[#a32638] text-xs font-semibold uppercase tracking-widest mb-1">Every Week</p>
-        <h2 className="text-3xl font-bold text-[#2c1a0e] mb-3">Friday Nights</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-[#2c1a0e] mb-3">Friday Nights</h2>
         <p className="text-[#7a6555] text-sm max-w-xl mb-8">
           Join us for free dinner, fun activities, and thoughtful discussions on spirituality and the Bible. Open
           to all faiths and backgrounds — everyone is welcome.
         </p>
 
-        <div className="flex gap-8">
+        <div className="flex flex-col md:flex-row gap-8">
           {/* Campus map thumbnail */}
-          <div className="w-[200px] flex-shrink-0 flex flex-col gap-2">
+          <div className="w-full md:w-[200px] md:flex-shrink-0 flex flex-col gap-2">
             <button
               onClick={() => setMapOpen(true)}
               className="rounded-xl overflow-hidden border border-gray-200 block w-full group relative"

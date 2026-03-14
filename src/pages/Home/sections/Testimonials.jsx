@@ -19,11 +19,11 @@ export default function Testimonials() {
           <span className="inline-block border border-gray-300 text-[#7a6555] text-xs px-4 py-1 rounded-full mb-4">
             Testimonials
           </span>
-          <h2 className="text-3xl font-bold text-[#2c1a0e]">What our community says</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#2c1a0e]">What our community says</h2>
           <p className="text-sm text-[#7a6555] mt-2">See what our members have to say about us.</p>
         </div>
 
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <div
               key={i}

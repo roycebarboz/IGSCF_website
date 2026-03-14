@@ -37,7 +37,7 @@ export default function HomeGroups() {
   return (
     <section className="py-12 px-8">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-[#2c1a0e] mb-3">Home Groups</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-[#2c1a0e] mb-3">Home Groups</h2>
         <p className="text-[#7a6555] text-sm mb-2">
           Same as Friday Night — free dinner, fun activities, and thoughtful discussion — but held in the
           homes of student alumni and volunteers.
@@ -47,9 +47,9 @@ export default function HomeGroups() {
           friendships in a relaxed, home setting.
         </p>
 
-        <div className="flex gap-8">
+        <div className="flex flex-col md:flex-row gap-8">
           {/* Register card */}
-          <div className="flex-1 max-w-xs bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col items-center gap-4">
+          <div className="flex-1 md:max-w-xs bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col items-center gap-4">
             <h3 className="font-bold text-[#2c1a0e] text-base self-start">Register for a Home Group</h3>
             <p className="text-[#7a6555] text-sm self-start">
               Scan the QR code or click the link below to sign up for your nearest home group.

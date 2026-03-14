@@ -77,7 +77,7 @@ export default function Programs() {
       <div className="max-w-5xl mx-auto">
         <p className="text-[#a32638] text-xs font-semibold uppercase tracking-widest mb-1">Programs</p>
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold text-[#2c1a0e]">For Students</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#2c1a0e]">For Students</h2>
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrev}

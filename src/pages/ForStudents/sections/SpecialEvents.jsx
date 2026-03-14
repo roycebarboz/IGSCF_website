@@ -17,7 +17,7 @@ export default function SpecialEvents() {
     <section className="py-12 px-8 bg-white">
       <div className="max-w-5xl mx-auto">
         <p className="text-[#a32638] text-xs font-semibold uppercase tracking-widest mb-1">Throughout the Year</p>
-        <h2 className="text-3xl font-bold text-[#2c1a0e] mb-3">Special Events</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-[#2c1a0e] mb-3">Special Events</h2>
         <p className="text-[#7a6555] text-sm mb-8">
           We organize memorable events across the year — from outdoor adventures to festive celebrations.
           Something for everyone!

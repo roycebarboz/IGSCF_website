@@ -7,9 +7,9 @@ export default function EnglishClass() {
     <section className="py-12 px-8 bg-white">
       <div className="max-w-5xl mx-auto">
         <p className="text-[#a32638] text-xs font-semibold uppercase tracking-widest mb-1">Skill Building</p>
-        <h2 className="text-3xl font-bold text-[#2c1a0e] mb-5">English Class</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-[#2c1a0e] mb-5">English Class</h2>
 
-        <div className="flex items-start gap-8">
+        <div className="flex flex-col md:flex-row md:items-start gap-8">
           <div className="flex-1">
             <p className="text-[#7a6555] text-sm leading-relaxed mb-5">
               Improve your English skills and do better in your career. Our community-run English classes are
