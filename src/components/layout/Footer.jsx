@@ -26,13 +26,13 @@ export default function Footer() {
 
         {/* Nav links */}
         <div className="flex items-center gap-1 text-sm text-white">
-          <Link to="/about" className="hover:text-white/75 transition-colors px-2">About Us</Link>
+          <Link to="/about" className="hover:text-white/75 transition-colors px-3 min-h-[44px] flex items-center">About Us</Link>
           <span className="text-white/40">|</span>
-          <Link to="/" className="hover:text-white/75 transition-colors px-2">Home</Link>
+          <Link to="/" className="hover:text-white/75 transition-colors px-3 min-h-[44px] flex items-center">Home</Link>
           <span className="text-white/40">|</span>
-          <Link to="/students" className="hover:text-white/75 transition-colors px-2">Students</Link>
+          <Link to="/students" className="hover:text-white/75 transition-colors px-3 min-h-[44px] flex items-center">Students</Link>
           <span className="text-white/40">|</span>
-          <Link to="/partner" className="hover:text-white/75 transition-colors px-2">Partner with Us</Link>
+          <Link to="/partner" className="hover:text-white/75 transition-colors px-3 min-h-[44px] flex items-center">Partner with Us</Link>
         </div>
 
       </div>
