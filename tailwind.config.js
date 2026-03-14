@@ -8,8 +8,8 @@ export default {
     extend: {
       colors: {
         brand: {
-          orange: '#ED920E',
-          brown: '#6E2B0A',
+          red: '#a32638',
+          grey: '#363d45',
           cream: '#FFF7F2',
           light: '#F9D9AB',
         }

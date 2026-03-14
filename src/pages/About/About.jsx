@@ -1,14 +1,20 @@
 import Navbar from '../../components/layout/Navbar'
 import Footer from '../../components/layout/Footer'
+import Hero from './sections/Hero'
+import OurRoots from './sections/OurRoots'
+import WhoWeAre from './sections/WhoWeAre'
+import Mission from './sections/Mission'
+import MeetTeam from './sections/MeetTeam'
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-[#faf6f0]">
+    <div className="min-h-screen">
       <Navbar />
-      <div className="max-w-5xl mx-auto px-8 py-16 text-center">
-        <h1 className="text-4xl font-bold text-[#2c1a0e]">About Us</h1>
-        <p className="text-[#7a6555] text-sm mt-4">Coming soon.</p>
-      </div>
+      <Hero />
+      <OurRoots />
+      <WhoWeAre />
+      <Mission />
+      <MeetTeam />
       <Footer />
     </div>
   )

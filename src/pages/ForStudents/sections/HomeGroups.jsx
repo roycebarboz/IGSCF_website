@@ -2,7 +2,7 @@ import homeGroupQR from '../../../assets/images/home_group_QR_code.jpg'
 
 const scheduleItems = [
   {
-    color: '#e89c2f',
+    color: '#a32638',
     title: 'Bi-Weekly Gatherings',
     desc: 'Rotating host homes across Hoboken',
     icon: (
@@ -58,19 +58,19 @@ export default function HomeGroups() {
               href="https://forms.office.com/Pages/ResponsePage.aspx?id=4_O3x3gK5EOb4YO8II4icFNUUgF_4KFNsVfJ9PdOpWRUOTBWODI1RU0yVEtHUEI4TVFVSk44RU85Si4u&origin=QRCode"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-[#e89c2f] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#f0b84a] transition-colors text-center"
+              className="w-full bg-[#a32638] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#8a1e2f] transition-colors text-center"
             >
               Click the Link to Register →
             </a>
             <p className="text-[#7a6555] text-xs">or scan the QR code</p>
-            <div className="w-36 h-36 rounded-lg overflow-hidden border-2 border-[#e89c2f]">
+            <div className="w-36 h-36 rounded-lg overflow-hidden border-2 border-[#a32638]">
               <img src={homeGroupQR} alt="Home Group QR Code" className="w-full h-full object-cover" />
             </div>
           </div>
 
           {/* Schedule */}
           <div className="flex-1">
-            <p className="text-[#e89c2f] text-xs font-semibold uppercase tracking-widest mb-4">Schedule</p>
+            <p className="text-[#a32638] text-xs font-semibold uppercase tracking-widest mb-4">Schedule</p>
             <div className="flex flex-col gap-4">
               {scheduleItems.map((item) => (
                 <div key={item.title} className="flex items-start gap-3">

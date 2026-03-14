@@ -3,7 +3,7 @@ import { testimonials } from '../../../data/testimonials'
 function Avatar({ name, color }) {
   return (
     <div
-      className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
+      className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
       style={{ backgroundColor: color }}
     >
       {name.charAt(0)}
@@ -23,17 +23,17 @@ export default function Testimonials() {
           <p className="text-sm text-[#7a6555] mt-2">See what our members have to say about us.</p>
         </div>
 
-        <div className="columns-3 gap-4">
+        <div className="grid grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="break-inside-avoid mb-4 bg-white border border-gray-100 rounded-[10px] p-5 shadow-sm"
+              className="bg-[#faf6f0] border border-[#e8ddd4] rounded-xl p-6 shadow-sm flex flex-col gap-4"
             >
-              <p className="text-sm text-[#2c1a0e] leading-relaxed mb-4">{t.quote}</p>
-              <div className="flex items-center gap-2">
+              <p className="text-sm text-[#2c1a0e] leading-relaxed flex-1">"{t.quote}"</p>
+              <div className="flex items-center gap-3 pt-3 border-t border-[#e8ddd4]">
                 <Avatar name={t.name} color={t.color} />
                 <div>
-                  <p className="text-xs font-semibold text-[#2c1a0e]">{t.name}</p>
+                  <p className="text-sm font-semibold text-[#2c1a0e]">{t.name}</p>
                   <p className="text-xs text-[#7a6555]">{t.role}</p>
                 </div>
               </div>

@@ -1,8 +1,8 @@
 export default function Button({ children, onClick, href, variant = 'primary', className = '' }) {
   const base = 'text-sm font-semibold px-5 py-2 rounded-full transition-colors'
   const variants = {
-    primary: 'bg-[#e89c2f] text-white hover:bg-[#f0b84a]',
-    outline: 'border border-[#e89c2f] text-[#e89c2f] hover:bg-[#e89c2f] hover:text-white',
+    primary: 'bg-[#a32638] text-white hover:bg-[#8a1e2f]',
+    outline: 'border border-[#a32638] text-[#a32638] hover:bg-[#a32638] hover:text-white',
   }
   const classes = `${base} ${variants[variant]} ${className}`
 

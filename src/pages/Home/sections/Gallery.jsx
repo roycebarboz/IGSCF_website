@@ -29,7 +29,7 @@ export default function Gallery() {
   return (
     <section className="bg-[#f0ebe4] py-12 px-8">
       <div className="max-w-5xl mx-auto">
-        <p className="text-[#e89c2f] text-xs font-semibold uppercase tracking-widest mb-1">Gallery</p>
+        <p className="text-[#a32638] text-xs font-semibold uppercase tracking-widest mb-1">Gallery</p>
         <h2 className="text-3xl font-bold text-[#2c1a0e] mb-8">Community Photos</h2>
 
         <div className="relative flex items-center justify-center">
@@ -45,7 +45,7 @@ export default function Gallery() {
           {/* Photo frame */}
           <div
             className="w-full overflow-hidden rounded-2xl shadow-lg"
-            style={{ maxWidth: '640px', height: '420px' }}
+            style={{ maxWidth: '720px', height: '500px' }}
           >
             <img
               key={current}
@@ -72,7 +72,7 @@ export default function Gallery() {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === current ? 'bg-[#e89c2f] scale-125' : 'bg-gray-300 hover:bg-gray-400'
+              className={`w-3.5 h-3.5 rounded-full transition-all duration-300 ${i === current ? 'bg-[#a32638] scale-125' : 'bg-gray-400 hover:bg-gray-600'
                 }`}
               aria-label={`Go to photo ${i + 1}`}
             />

@@ -16,7 +16,7 @@ export default function SpecialEvents() {
   return (
     <section className="py-12 px-8 bg-white">
       <div className="max-w-5xl mx-auto">
-        <p className="text-[#e89c2f] text-xs font-semibold uppercase tracking-widest mb-1">Throughout the Year</p>
+        <p className="text-[#a32638] text-xs font-semibold uppercase tracking-widest mb-1">Throughout the Year</p>
         <h2 className="text-3xl font-bold text-[#2c1a0e] mb-3">Special Events</h2>
         <p className="text-[#7a6555] text-sm mb-8">
           We organize memorable events across the year — from outdoor adventures to festive celebrations.
@@ -37,7 +37,7 @@ export default function SpecialEvents() {
           </button>
 
           <div className="relative px-16 py-10">
-            <span className="inline-block bg-[#e89c2f] text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
+            <span className="inline-block bg-[#a32638] text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
               {event.badge}
             </span>
             <h3 className="text-white text-2xl font-bold mb-2">{event.title}</h3>
@@ -60,7 +60,7 @@ export default function SpecialEvents() {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-2.5 h-2.5 rounded-full transition-colors ${i === current ? 'bg-[#e89c2f]' : 'bg-gray-300'}`}
+              className={`w-2.5 h-2.5 rounded-full transition-colors ${i === current ? 'bg-[#a32638]' : 'bg-gray-300'}`}
             />
           ))}
         </div>
