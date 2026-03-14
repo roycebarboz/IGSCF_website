@@ -50,11 +50,11 @@ export default function MeetTeam() {
         <div className="grid grid-cols-2 gap-5">
           {team.map((member) => (
             <div key={member.name} className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
-              <div className="w-full h-56 overflow-hidden">
+              <div className="w-full h-64 bg-[#f0ebe4] flex items-center justify-center overflow-hidden">
                 <img
                   src={member.photo}
                   alt={member.name}
-                  className="w-full h-full object-cover object-top"
+                  className="h-full w-full object-contain"
                 />
               </div>
               <div className="p-5">
