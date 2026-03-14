@@ -50,7 +50,7 @@ export default function ForStudents() {
       <main id="main-content">
       {/* Page header */}
       <ScrollReveal variant="fadeIn" delay={100}>
-        <div className="bg-[#faf6f0] pt-10 pb-2 text-center">
+        <div className="bg-gray-100 pt-10 pb-2 text-center">
           <span className="inline-block border border-[#a32638] text-[#a32638] text-xs font-semibold uppercase tracking-widest px-4 py-1 rounded-full mb-4">
             Programs &amp; Activities
           </span>
@@ -59,7 +59,7 @@ export default function ForStudents() {
       </ScrollReveal>
 
       {/* Sticky scroll-anchor nav */}
-      <nav role="navigation" aria-label="Page sections" className="border-b border-gray-200 bg-[#faf6f0] sticky top-0 z-20">
+      <nav role="navigation" aria-label="Page sections" className="border-b border-gray-200 bg-gray-100 sticky top-0 z-20">
         <div className="max-w-5xl mx-auto px-8">
           <div role="tablist" className="flex gap-0 overflow-x-auto">
             {navLinks.map((link) => (

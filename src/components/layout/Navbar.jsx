@@ -26,7 +26,7 @@ export default function Navbar() {
         <Link to="/" className="text-white text-sm hover:text-white/75 transition-colors">Home</Link>
         <Link to="/students" className="text-white text-sm hover:text-white/75 transition-colors font-semibold">For Students</Link>
         <Link
-          to="/#partner"
+          to="/partner"
           className="bg-white text-[#a32638] text-sm font-semibold px-5 py-2 rounded-full hover:bg-gray-100 transition-colors"
         >
           Partner with Us
@@ -59,7 +59,7 @@ export default function Navbar() {
           <Link to="/students" onClick={() => setMenuOpen(false)} className="text-white text-sm px-8 py-4 hover:bg-white/10 transition-colors font-semibold border-b border-white/10">For Students</Link>
           <div className="px-8 py-4">
             <Link
-              to="/#partner"
+              to="/partner"
               onClick={() => setMenuOpen(false)}
               className="inline-block bg-white text-[#a32638] text-sm font-semibold px-5 py-2 rounded-full hover:bg-gray-100 transition-colors"
             >

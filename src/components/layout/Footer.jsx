@@ -26,20 +26,15 @@ export default function Footer() {
 
         {/* Nav links */}
         <div className="flex items-center gap-1 text-sm text-white">
-          <a href="#about" className="hover:text-white/75 transition-colors px-2">About Us</a>
+          <Link to="/about" className="hover:text-white/75 transition-colors px-2">About Us</Link>
           <span className="text-white/40">|</span>
           <Link to="/" className="hover:text-white/75 transition-colors px-2">Home</Link>
           <span className="text-white/40">|</span>
           <Link to="/students" className="hover:text-white/75 transition-colors px-2">Students</Link>
+          <span className="text-white/40">|</span>
+          <Link to="/partner" className="hover:text-white/75 transition-colors px-2">Partner with Us</Link>
         </div>
 
-        {/* CTA */}
-        <a
-          href="#partner"
-          className="bg-[#a32638] text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-[#8a1e2f] transition-colors"
-        >
-          Partner with Us
-        </a>
       </div>
     </footer>
   )
