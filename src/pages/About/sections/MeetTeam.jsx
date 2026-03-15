@@ -9,7 +9,7 @@ const team = [
     roleBg: '#3bbfbf',
     photo: dougPhoto,
     description:
-      'Doug leads the North Jersey region\'s outreach to international graduate students. He has a heart for welcoming newcomers and building lasting cross-cultural friendships in the Hoboken community.',
+      'Doug was born, raised and lives in northern New Jersey.  He earned a Bachelor and Masters degree in engineering from Stevens Institute of Technology in Hoboken, and works in an  engineering management position.  He and his wife Judy have been serving international students for over ten years, and have formed many lasting friendships with students from many countries.  They particularly enjoy hosting student events  in their home.  They have 3 adult children and two grandchildren.  In his spare time Doug enjoys studying and learning new things, and has particular interests in science and world religions.',
   },
   {
     name: 'James Kong',
@@ -17,7 +17,7 @@ const team = [
     roleBg: '#1e2a3a',
     photo: jamesPhoto,
     description:
-      'James serves as a ministry representative, helping connect international students with the IGSCF community and supporting weekly programs, events, and discipleship at Stevens Institute of Technology.',
+      'James was born and raised in South Korea, educated in the US, and worked as an electrical engineer in Silicon Valley before moving to the East Coast for seminary education.  He served as a volunteer spiritual director in NJ State Prison, pastor of Karen/Karreni youth from Myanmar, and pastor of an international church in NJ.He and his wife Elisabeth are deeply grateful for their two sons and daughters-in-law. He enjoys taking a walk with his wife, exploring the mountains and historical sites around NJ, learning ancient languages, reading books on science, and listening to classical music.',
   },
   {
     name: 'Mirolla Flores',
@@ -54,6 +54,7 @@ export default function MeetTeam() {
                 <img
                   src={member.photo}
                   alt={member.name}
+                  loading="lazy"
                   className="h-full w-full object-contain"
                 />
               </div>

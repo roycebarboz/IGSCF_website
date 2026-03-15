@@ -11,14 +11,11 @@ export default function EnglishClass() {
 
         <div className="flex flex-col md:flex-row md:items-start gap-8">
           <div className="flex-1">
-            <p className="text-[#7a6555] text-sm leading-relaxed mb-5">
+            <p className="text-[#7a6555] text-sm leading-relaxed">
               Improve your English skills and do better in your career. Our community-run English classes are
               informal, supportive, and free. For more information, join our community group on WhatsApp or
               WeChat.
             </p>
-            <button className="bg-[#a32638] text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-[#8a1e2f] transition-colors">
-              Learn More →
-            </button>
           </div>
 
           <div className="flex flex-col items-center gap-3 bg-[#faf6f0] border border-[#e8ddd4] rounded-xl px-6 py-4">

@@ -10,6 +10,7 @@ export default function Hero() {
         muted
         loop
         playsInline
+        preload="none"
       />
       <div className="absolute inset-0 bg-black/60" />
       <div className="absolute inset-0 flex items-center justify-center text-center text-white px-4">

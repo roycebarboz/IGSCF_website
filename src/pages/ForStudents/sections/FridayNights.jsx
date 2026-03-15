@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import campusMapImg from '../../../assets/images/Campus_map.png'
+import campusMapImg from '../../../assets/images/Campus_map.webp'
 import { ClockIcon, PinIcon, DinnerIcon } from '../icons'
 
 function InfoRow({ icon, text }) {
@@ -53,7 +53,7 @@ export default function FridayNights() {
               onClick={() => setMapOpen(false)}
             >
               <div className="relative max-w-4xl w-full max-h-[90vh] flex flex-col" onClick={(e) => e.stopPropagation()}>
-                <img src={campusMapImg} alt="Campus Map Full" className="w-full max-h-[82vh] object-contain rounded-xl shadow-2xl" />
+                <img src={campusMapImg} alt="Campus Map Full" loading="lazy" className="w-full max-h-[82vh] object-contain rounded-xl shadow-2xl" />
                 <p className="text-white/70 text-xs text-center mt-2">
                   <span className="font-semibold text-[#a32638]">Building #7</span> — Gateway North, Room 103
                 </p>

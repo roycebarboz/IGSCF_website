@@ -16,7 +16,7 @@ export default function Volunteer() {
 
         <div className="flex flex-col items-center gap-2">
           <div className="bg-white rounded-xl p-3 border-2 border-[#a32638]">
-            <img src="https://placehold.co/120x120?text=QR" alt="Volunteer QR Code" className="w-28 h-28" />
+            <img src="https://placehold.co/120x120?text=QR" alt="Volunteer QR Code" loading="lazy" className="w-28 h-28" />
           </div>
           <p className="text-[#7a6555] text-xs text-center">Demo QR Code — replace with real link</p>
         </div>

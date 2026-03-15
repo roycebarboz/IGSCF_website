@@ -1,4 +1,4 @@
-import homeGroupQR from '../../../assets/images/home_group_QR_code.jpg'
+import homeGroupQR from '../../../assets/images/home_group_QR_code.webp'
 
 const scheduleItems = [
   {
@@ -64,7 +64,7 @@ export default function HomeGroups() {
             </a>
             <p className="text-[#7a6555] text-xs">or scan the QR code</p>
             <div className="w-36 h-36 rounded-lg overflow-hidden border-2 border-[#a32638]">
-              <img src={homeGroupQR} alt="Home Group QR Code" className="w-full h-full object-cover" />
+              <img src={homeGroupQR} alt="Home Group QR Code" loading="lazy" className="w-full h-full object-cover" />
             </div>
           </div>
 

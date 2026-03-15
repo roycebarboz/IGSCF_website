@@ -1,10 +1,15 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 import { programs } from '../../../data/programs'
 
 function ProgramCard({ headerBg, headerText, title, time, description, tabId }) {
   return (
-    <div className="w-full max-w-sm mx-auto rounded-[10px] overflow-hidden shadow-sm border border-gray-100 bg-white">
+    <motion.div
+      className="w-full max-w-sm mx-auto rounded-[10px] overflow-hidden shadow-sm border border-gray-100 bg-white"
+      whileHover={{ scale: 1.02, y: -4 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+    >
       <div className={`${headerBg} py-6 text-center`}>
         <span className="text-white font-bold text-lg">{headerText}</span>
       </div>
@@ -20,44 +25,26 @@ function ProgramCard({ headerBg, headerText, title, time, description, tabId }) 
           More Info
         </Link>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
-const VISIBLE = 1
-const FADE_MS = 300
-
 export default function Programs() {
   const [start, setStart] = useState(0)
-  const [opacity, setOpacity] = useState(1)
+  const [direction, setDirection] = useState(1)
   const total = programs.length
   const timerRef = useRef(null)
 
-  const transition = useCallback((newStart) => {
-    setOpacity(0)
-    setTimeout(() => {
-      setStart(newStart)
-      setOpacity(1)
-    }, FADE_MS)
+  const goTo = useCallback((index, dir) => {
+    setDirection(dir)
+    setStart(index)
   }, [])
-
-  const next = useCallback(() => {
-    transition((start + 1) % total)
-  }, [start, total, transition])
-
-  const prev = () => {
-    transition((start - 1 + total) % total)
-  }
 
   const resetTimer = useCallback(() => {
     clearInterval(timerRef.current)
     timerRef.current = setInterval(() => {
-      setStart((s) => {
-        const ns = (s + 1) % total
-        setOpacity(0)
-        setTimeout(() => setOpacity(1), FADE_MS)
-        return ns
-      })
+      setDirection(1)
+      setStart((s) => (s + 1) % total)
     }, 4000)
   }, [total])
 
@@ -66,11 +53,26 @@ export default function Programs() {
     return () => clearInterval(timerRef.current)
   }, [resetTimer])
 
-  const handleNext = () => { next(); resetTimer() }
-  const handlePrev = () => { prev(); resetTimer() }
-  const handleDot = (i) => { transition(i); resetTimer() }
+  const handleNext = () => {
+    goTo((start + 1) % total, 1)
+    resetTimer()
+  }
 
-  const visible = Array.from({ length: VISIBLE }, (_, i) => programs[(start + i) % total])
+  const handlePrev = () => {
+    goTo((start - 1 + total) % total, -1)
+    resetTimer()
+  }
+
+  const handleDot = (i) => {
+    goTo(i, i > start ? 1 : -1)
+    resetTimer()
+  }
+
+  const variants = {
+    enter: (dir) => ({ x: dir > 0 ? 60 : -60, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir) => ({ x: dir > 0 ? -60 : 60, opacity: 0 }),
+  }
 
   return (
     <section className="bg-[#faf6f0] py-12 px-8" id="students">
@@ -86,16 +88,24 @@ export default function Programs() {
             >
               ‹
             </button>
+
+            {/* Animated dots */}
             <div className="flex gap-1.5">
               {programs.map((_, i) => (
-                <button
+                <motion.button
                   key={i}
                   onClick={() => handleDot(i)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${i === start ? 'bg-[#a32638] scale-125' : 'bg-gray-300 hover:bg-gray-400'}`}
                   aria-label={`Go to slide ${i + 1}`}
+                  animate={{
+                    scale: i === start ? 1.25 : 1,
+                    backgroundColor: i === start ? '#a32638' : '#d1d5db',
+                  }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                  className="w-2 h-2 rounded-full"
                 />
               ))}
             </div>
+
             <button
               onClick={handleNext}
               className="w-8 h-8 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors text-lg"
@@ -106,13 +116,22 @@ export default function Programs() {
           </div>
         </div>
 
-        <div
-          className="flex gap-6"
-          style={{ opacity, transition: `opacity ${FADE_MS}ms ease` }}
-        >
-          {visible.map((p, i) => (
-            <ProgramCard key={`${p.tabId}-${i}`} {...p} />
-          ))}
+        {/* Animated card */}
+        <div className="relative overflow-hidden" style={{ minHeight: '280px' }}>
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={start}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="flex gap-6"
+            >
+              <ProgramCard {...programs[start]} />
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>
