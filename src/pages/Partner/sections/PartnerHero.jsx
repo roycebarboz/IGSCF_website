@@ -58,15 +58,7 @@ export default function PartnerHero() {
         Christ's love.
       </p>
 
-      <div className="mt-8">
-        <Link
-          to="#get-involved"
-          className="inline-block bg-[#a32638] text-white text-sm font-semibold px-7 py-3 rounded-full hover:bg-[#8a1e2f] transition-colors shadow-sm"
-          id="partner-hero-cta"
-        >
-          Get Involved
-        </Link>
-      </div>
+      
     </section>
   )
 }
