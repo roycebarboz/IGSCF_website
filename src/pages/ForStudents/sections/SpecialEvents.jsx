@@ -31,6 +31,7 @@ export default function SpecialEvents() {
 
           <button
             onClick={() => setCurrent((c) => (c - 1 + events.length) % events.length)}
+            aria-label="Previous event"
             className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors z-10"
           >
             ←
@@ -49,6 +50,7 @@ export default function SpecialEvents() {
 
           <button
             onClick={() => setCurrent((c) => (c + 1) % events.length)}
+            aria-label="Next event"
             className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors z-10"
           >
             →
@@ -56,10 +58,11 @@ export default function SpecialEvents() {
         </div>
 
         <div className="flex justify-center gap-2 mt-4">
-          {events.map((_, i) => (
+          {events.map((e, i) => (
             <button
-              key={i}
+              key={e.title}
               onClick={() => setCurrent(i)}
+              aria-label={`Go to event: ${e.title}`}
               className={`w-2.5 h-2.5 rounded-full transition-colors ${i === current ? 'bg-[#a32638]' : 'bg-gray-300'}`}
             />
           ))}

@@ -46,7 +46,7 @@ function TestimonialsColumn({ items, duration = 15, className = '' }) {
         }}
       >
         {doubled.map((t, i) => (
-          <TestimonialCard key={i} {...t} />
+          <TestimonialCard key={`${t.name}-${i}`} {...t} />
         ))}
       </motion.div>
     </div>

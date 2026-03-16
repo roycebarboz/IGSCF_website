@@ -25,7 +25,7 @@ const team = [
     roleBg: '#a32638',
     photo: defaultPhoto,
     description:
-      'Mirolla brings warmth and creativity to IGSCF\'s outreach efforts. She helps plan events that connect students from Latin American backgrounds, and ensure every newcomer feels genuinely welcomed.',
+      '',
   },
   {
     name: 'Joey Sforza',
@@ -33,7 +33,7 @@ const team = [
     roleBg: '#c9922a',
     photo: defaultPhoto,
     description:
-      'Joey is passionate about building authentic community among international scholars. He plays a key role in Friday Night programs and special events, making sure everyone has a place to belong.',
+      '',
   },
 ]
 

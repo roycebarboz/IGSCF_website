@@ -80,7 +80,7 @@ export default function FridayNights() {
               <p className="text-[#7a6555] text-sm mb-3">To join our Friday Night dinners, follow these steps:</p>
               <ol className="flex flex-col gap-3">
                 {[
-                  <>Go to the <span className="font-semibold">Duckling app</span> on your phone</>,
+                  <>Go to the <span className="font-semibold">Ducklink app</span> on your phone</>,
                   <>Search for <span className="font-semibold">"IGSCF Friday Dinner"</span></>,
                   <>Register and you're all set — see you Friday!</>,
                 ].map((step, i) => (
@@ -92,9 +92,6 @@ export default function FridayNights() {
                   </li>
                 ))}
               </ol>
-              <button className="mt-4 bg-[#a32638] text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-[#8a1e2f] transition-colors">
-                Register Now →
-              </button>
             </div>
           </div>
         </div>
