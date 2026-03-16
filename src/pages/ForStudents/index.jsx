@@ -80,14 +80,14 @@ export default function ForStudents() {
                 aria-selected={activeId === link.id}
                 tabIndex={activeId === link.id ? 0 : -1}
                 onClick={() => scrollTo(link.id)}
-                className={`flex items-center gap-2 px-5 py-4 text-sm font-semibold border-b-2 transition-colors whitespace-nowrap ${
+                className={`flex items-center gap-2 px-3 py-3 sm:px-5 sm:py-4 text-sm font-semibold border-b-2 transition-colors whitespace-nowrap ${
                   activeId === link.id
                     ? 'text-[#a32638] border-[#a32638]'
                     : 'text-[#7a6555] border-transparent hover:text-[#a32638] hover:border-[#a32638]/50'
                 }`}
               >
                 {link.icon}
-                {link.label}
+                <span className="hidden sm:inline">{link.label}</span>
               </button>
             ))}
           </div>

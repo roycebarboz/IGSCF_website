@@ -24,7 +24,7 @@ function TestimonialCard({ quote, name, role, color }) {
         <Avatar name={name} color={color} />
         <div>
           <p className="text-sm font-semibold text-[#2c1a0e]">{name}</p>
-          <p className="text-xs text-[#7a6555]">{role}</p>
+          <p className="text-xs text-[#5c4033]">{role}</p>
         </div>
       </div>
     </motion.div>
@@ -64,13 +64,13 @@ export default function Testimonials() {
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
-          <span className="inline-block border border-[#e8ddd4] text-[#7a6555] text-xs px-4 py-1 rounded-full mb-4">
+          <span className="inline-block border border-[#e8ddd4] text-[#5c4033] text-xs px-4 py-1 rounded-full mb-4">
             Testimonials
           </span>
           <h2 className="text-2xl md:text-3xl font-bold text-[#2c1a0e]">
             What our community says
           </h2>
-          <p className="text-sm text-[#7a6555] mt-2">
+          <p className="text-sm text-[#5c4033] mt-2">
             See what our members have to say about us.
           </p>
         </div>
