@@ -33,9 +33,9 @@ export default function Navbar() {
 
       {/* Desktop nav */}
       <div className="hidden lg:flex items-center gap-6">
-        <Link to="/about" className={navLinkClass('/about')}>About</Link>
         <Link to="/" className={navLinkClass('/')}>Home</Link>
         <Link to="/students" className={navLinkClass('/students')}>For Students</Link>
+        <Link to="/about" className={navLinkClass('/about')}>About</Link>
         <Link
           to="/partner"
           className={`text-sm font-semibold px-5 py-2 rounded-full transition-colors ${
@@ -69,9 +69,9 @@ export default function Navbar() {
       {/* Mobile dropdown */}
       {menuOpen && (
         <div className="absolute top-full left-0 right-0 bg-[#a32638] border-t border-white/20 flex flex-col z-50 lg:hidden">
-          <Link to="/about" onClick={() => setMenuOpen(false)} className={mobileNavLinkClass('/about')}>About</Link>
           <Link to="/" onClick={() => setMenuOpen(false)} className={mobileNavLinkClass('/')}>Home</Link>
           <Link to="/students" onClick={() => setMenuOpen(false)} className={mobileNavLinkClass('/students')}>For Students</Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)} className={mobileNavLinkClass('/about')}>About</Link>
           <div className="px-8 py-4">
             <Link
               to="/partner"

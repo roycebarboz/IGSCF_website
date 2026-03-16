@@ -16,9 +16,7 @@ export default function Home() {
       </a>
       <Navbar />
       <main id="main-content">
-      <ScrollReveal variant="fadeIn" delay={100}>
-        <Hero />
-      </ScrollReveal>
+      <Hero />
       <ScrollReveal variant="fadeUp" delay={0}>
         <Welcome />
       </ScrollReveal>

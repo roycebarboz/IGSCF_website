@@ -10,6 +10,15 @@ import p6 from '../../../assets/images/gallery_photos/IMG-20260208-WA0011.webp'
 
 const photos = [p1, p2, p3, p4, p5, p6]
 
+const photoDescriptions = [
+  'Community gathering at an IGSCF event, September 2025',
+  'Students at a community meetup, September 2025',
+  'IGSCF members at a group activity, September 2025',
+  'Community dinner gathering, November 2025',
+  'Students socializing at an IGSCF event, November 2025',
+  'Community members at an IGSCF gathering, February 2026',
+]
+
 const variants = {
   enter: (dir) => ({ x: dir > 0 ? 80 : -80, opacity: 0 }),
   center: { x: 0, opacity: 1 },
@@ -79,7 +88,7 @@ export default function Gallery() {
               <motion.img
                 key={current}
                 src={photos[current]}
-                alt={`Gallery photo ${current + 1}`}
+                alt={photoDescriptions[current]}
                 loading="lazy"
                 custom={direction}
                 variants={variants}
