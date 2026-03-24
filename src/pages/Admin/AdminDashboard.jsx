@@ -43,8 +43,8 @@ export default function AdminDashboard() {
       </header>
 
       {/* Tabs */}
-      <div className="bg-white border-b border-gray-100 px-4 sm:px-8">
-        <div className="flex">
+      <div className="bg-white border-b border-gray-100 px-4 sm:px-8 overflow-x-auto">
+        <div className="flex min-w-max">
           {TABS.map((tab, i) => (
             <button
               key={tab}
