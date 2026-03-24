@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { testimonials } from '../../../data/testimonials'
 
 function Avatar({ name, color }) {
@@ -14,7 +14,7 @@ function Avatar({ name, color }) {
 
 function TestimonialCard({ quote, name, role, color }) {
   return (
-    <motion.div
+    <m.div
       className="bg-[#faf6f0] border border-[#e8ddd4] rounded-xl p-6 shadow-sm flex flex-col gap-4 mb-4"
       whileHover={{ scale: 1.02, y: -4 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -27,7 +27,7 @@ function TestimonialCard({ quote, name, role, color }) {
           <p className="text-xs text-[#5c4033]">{role}</p>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -37,7 +37,7 @@ function TestimonialsColumn({ items, duration = 15, className = '' }) {
 
   return (
     <div className={`overflow-hidden relative ${className}`}>
-      <motion.div
+      <m.div
         animate={{ y: ['0%', '-50%'] }}
         transition={{
           duration,
@@ -48,7 +48,7 @@ function TestimonialsColumn({ items, duration = 15, className = '' }) {
         {doubled.map((t, i) => (
           <TestimonialCard key={`${t.name}-${i}`} {...t} />
         ))}
-      </motion.div>
+      </m.div>
     </div>
   )
 }

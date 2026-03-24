@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import { programs } from '../../../data/programs'
 
 function ProgramCard({ headerBg, headerText, title, time, description, tabId }) {
   return (
-    <motion.div
+    <m.div
       className="w-full max-w-sm mx-auto rounded-[10px] overflow-hidden shadow-sm border border-gray-100 bg-white"
       whileHover={{ scale: 1.02, y: -4 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -25,7 +25,7 @@ function ProgramCard({ headerBg, headerText, title, time, description, tabId }) 
           More Info
         </Link>
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -92,7 +92,7 @@ export default function Programs() {
             {/* Animated dots */}
             <div className="flex gap-1.5">
               {programs.map((_, i) => (
-                <motion.button
+                <m.button
                   key={i}
                   onClick={() => handleDot(i)}
                   aria-label={`Go to slide ${i + 1}`}
@@ -119,7 +119,7 @@ export default function Programs() {
         {/* Animated card */}
         <div className="relative overflow-hidden" style={{ minHeight: '280px' }}>
           <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
+            <m.div
               key={start}
               custom={direction}
               variants={variants}
@@ -130,7 +130,7 @@ export default function Programs() {
               className="flex gap-6"
             >
               <ProgramCard {...programs[start]} />
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
       </div>

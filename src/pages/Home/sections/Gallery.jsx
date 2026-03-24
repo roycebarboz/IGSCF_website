@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 
 import p1 from '../../../assets/images/gallery_photos/IMG-20250901-WA0002.webp'
 import p2 from '../../../assets/images/gallery_photos/IMG-20250906-WA0009.webp'
@@ -85,7 +85,7 @@ export default function Gallery() {
             style={{ maxWidth: '720px', height: 'clamp(220px, 50vw, 500px)' }}
           >
             <AnimatePresence mode="wait" custom={direction}>
-              <motion.img
+              <m.img
                 key={current}
                 src={photos[current]}
                 alt={photoDescriptions[current]}
@@ -114,7 +114,7 @@ export default function Gallery() {
         {/* Animated dot indicators */}
         <div className="flex justify-center gap-2 mt-5">
           {photos.map((_, i) => (
-            <motion.button
+            <m.button
               key={i}
               onClick={() => handleDot(i)}
               aria-label={`Go to photo ${i + 1}`}

@@ -1,16 +1,26 @@
-import { useState } from 'react'
-import { events } from '../../../data/events'
-
-function TagPill({ label }) {
-  return (
-    <span className="flex items-center gap-1 text-white/80 text-xs border border-white/30 rounded-full px-2 py-0.5">
-      {label}
-    </span>
-  )
-}
+import { useState, useEffect } from 'react'
+import { collection, getDocs, orderBy, query } from 'firebase/firestore'
+import { db } from '../../../firebase/config'
+import { events as staticEvents } from '../../../data/events'
 
 export default function SpecialEvents() {
+  const [events, setEvents] = useState(staticEvents)
   const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    async function fetchEvents() {
+      try {
+        const q = query(collection(db, 'events'), orderBy('order'))
+        const snap = await getDocs(q)
+        const docs = snap.docs.map((d) => ({ id: d.id, ...d.data() }))
+        if (docs.length > 0) setEvents(docs)
+      } catch {
+        // Firestore not configured yet — keep static fallback
+      }
+    }
+    fetchEvents()
+  }, [])
+
   const event = events[current]
 
   return (
@@ -38,14 +48,8 @@ export default function SpecialEvents() {
           </button>
 
           <div className="relative px-12 sm:px-16 py-10">
-            <span className="inline-block bg-[#a32638] text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
-              {event.badge}
-            </span>
             <h3 className="text-white text-2xl font-bold mb-2">{event.title}</h3>
-            <p className="text-white/80 text-sm max-w-xl mb-4">{event.description}</p>
-            <div className="flex gap-2 flex-wrap">
-              {event.tags.map((t) => <TagPill key={t} label={t} />)}
-            </div>
+            <p className="text-white/80 text-sm max-w-xl">{event.description}</p>
           </div>
 
           <button

@@ -1,13 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
+import { LazyMotion, domAnimation } from 'framer-motion'
 import App from './App.jsx'
+import { AuthProvider } from './context/AuthContext.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+        <LazyMotion features={domAnimation}>
+          <App />
+        </LazyMotion>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )

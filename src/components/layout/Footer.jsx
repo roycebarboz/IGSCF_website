@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
 import logoImg from '../../assets/logos/logo.jpg'
 
 export default function Footer() {
+  const { user } = useAuth()
+
   return (
     <footer className="bg-[#363d45] py-8 px-4 sm:px-8">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
@@ -35,6 +38,19 @@ export default function Footer() {
           <Link to="/partner" className="hover:text-white/75 transition-colors py-2 sm:px-3 sm:py-0 sm:min-h-[44px] sm:flex sm:items-center">Partner with Us</Link>
         </div>
 
+      </div>
+
+      {/* Admin link — subtle, for volunteers only */}
+      <div className="max-w-5xl mx-auto mt-6 pt-4 border-t border-white/10 flex justify-end">
+        {user ? (
+          <Link to="/admin" className="text-white/30 text-xs hover:text-white/60 transition-colors">
+            Admin Dashboard
+          </Link>
+        ) : (
+          <Link to="/admin/login" className="text-white/30 text-xs hover:text-white/60 transition-colors">
+            Volunteer Login
+          </Link>
+        )}
       </div>
     </footer>
   )

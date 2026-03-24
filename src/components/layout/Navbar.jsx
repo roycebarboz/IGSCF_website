@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
 import logoImg from '../../assets/logos/logo.jpg'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { pathname } = useLocation()
+  const { user } = useAuth()
 
   const navLinkClass = (path) =>
     `text-white text-sm transition-colors hover:text-white/75 ${
@@ -46,6 +48,17 @@ export default function Navbar() {
         >
           Partner with Us
         </Link>
+        <Link
+          to={user ? '/admin' : '/admin/login'}
+          className="flex items-center gap-1.5 text-white/60 hover:text-white text-xs transition-colors"
+          title={user ? 'Admin Dashboard' : 'Volunteer Login'}
+        >
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path strokeLinecap="round" d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          {user ? 'Admin' : 'Login'}
+        </Link>
       </div>
 
       {/* Hamburger button */}
@@ -72,7 +85,7 @@ export default function Navbar() {
           <Link to="/" onClick={() => setMenuOpen(false)} className={mobileNavLinkClass('/')}>Home</Link>
           <Link to="/students" onClick={() => setMenuOpen(false)} className={mobileNavLinkClass('/students')}>For Students</Link>
           <Link to="/about" onClick={() => setMenuOpen(false)} className={mobileNavLinkClass('/about')}>About</Link>
-          <div className="px-8 py-4">
+          <div className="px-8 py-4 flex items-center justify-between">
             <Link
               to="/partner"
               onClick={() => setMenuOpen(false)}
@@ -83,6 +96,17 @@ export default function Navbar() {
               }`}
             >
               Partner with Us
+            </Link>
+            <Link
+              to={user ? '/admin' : '/admin/login'}
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-1.5 text-white/60 hover:text-white text-xs transition-colors"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path strokeLinecap="round" d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              {user ? 'Admin' : 'Login'}
             </Link>
           </div>
         </div>

@@ -1,4 +1,8 @@
-import homeGroupQR from '../../../assets/images/home_group_QR_code.webp'
+import { useEffect, useState } from 'react'
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from '../../../firebase/config'
+const DEFAULT_LINK =
+  'https://forms.office.com/Pages/ResponsePage.aspx?id=4_O3x3gK5EOb4YO8II4icFNUUgF_4KFNsVfJ9PdOpWRUOTBWODI1RU0yVEtHUEI4TVFVSk44RU85Si4u&origin=QRCode'
 
 const scheduleItems = [
   {
@@ -34,6 +38,22 @@ const scheduleItems = [
 ]
 
 export default function HomeGroups() {
+  const [link, setLink] = useState(DEFAULT_LINK)
+
+  useEffect(() => {
+    async function fetchSettings() {
+      try {
+        const snap = await getDoc(doc(db, 'settings', 'main'))
+        if (snap.exists() && snap.data().homeGroupLink) {
+          setLink(snap.data().homeGroupLink)
+        }
+      } catch {
+        // Firestore not configured yet — keep static fallback
+      }
+    }
+    fetchSettings()
+  }, [])
+
   return (
     <section className="py-12 px-4 sm:px-8">
       <div className="max-w-5xl mx-auto">
@@ -52,20 +72,16 @@ export default function HomeGroups() {
           <div className="flex-1 md:max-w-xs bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col items-center gap-4">
             <h3 className="font-bold text-[#2c1a0e] text-base self-start">Register for a Home Group</h3>
             <p className="text-[#7a6555] text-sm self-start">
-              Scan the QR code or click the link below to sign up for your nearest home group.
+              Click the link below to sign up for your nearest home group.
             </p>
             <a
-              href="https://forms.office.com/Pages/ResponsePage.aspx?id=4_O3x3gK5EOb4YO8II4icFNUUgF_4KFNsVfJ9PdOpWRUOTBWODI1RU0yVEtHUEI4TVFVSk44RU85Si4u&origin=QRCode"
+              href={link}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full bg-[#a32638] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#8a1e2f] transition-colors text-center"
             >
               Click the Link to Register →
             </a>
-            <p className="text-[#7a6555] text-xs">or scan the QR code</p>
-            <div className="w-36 h-36 rounded-lg overflow-hidden border-2 border-[#a32638]">
-              <img src={homeGroupQR} alt="Home Group QR Code" loading="lazy" className="w-full h-full object-cover" />
-            </div>
           </div>
 
           {/* Schedule */}
