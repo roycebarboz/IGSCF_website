@@ -20,6 +20,7 @@ function ProgramCard({ headerBg, headerText, title, time, description, tabId }) 
         <p className="text-[#7a6555] text-sm leading-relaxed">{description}</p>
         <Link
           to={tabId ? `/students#${tabId}` : '/students'}
+          aria-label={`More info about ${title}`}
           className="mt-6 inline-block bg-[#a32638] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#8a1e2f] transition-colors"
         >
           More Info

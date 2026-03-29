@@ -43,11 +43,11 @@ export default function Footer() {
       {/* Admin link — subtle, for volunteers only */}
       <div className="max-w-5xl mx-auto mt-6 pt-4 border-t border-white/10 flex justify-end">
         {user ? (
-          <Link to="/admin" className="text-white/30 text-xs hover:text-white/60 transition-colors">
+          <Link to="/admin" className="text-white/50 text-xs hover:text-white/80 transition-colors">
             Admin Dashboard
           </Link>
         ) : (
-          <Link to="/admin/login" className="text-white/30 text-xs hover:text-white/60 transition-colors">
+          <Link to="/admin/login" className="text-white/50 text-xs hover:text-white/80 transition-colors">
             Volunteer Login
           </Link>
         )}

@@ -31,9 +31,11 @@ export default function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="none"
         src={mobileVideoSrc}
-      />
+      >
+        <track kind="captions" />
+      </video>
       {/* Desktop landscape video */}
       <video
         ref={desktopVideoRef}
@@ -42,9 +44,11 @@ export default function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="none"
         src={videoSrc}
-      />
+      >
+        <track kind="captions" />
+      </video>
       <div className="absolute inset-0 bg-black/60" />
       <div className="absolute inset-0 flex items-center justify-center text-center text-white px-6">
         <div className="border border-white/40 px-6 py-6 sm:px-10 sm:py-8 w-full max-w-2xl flex flex-col items-center gap-6">
