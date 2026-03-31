@@ -1,6 +1,6 @@
 # IGSCF Website
 
-The official website for the International Graduate Student Christian Fellowship (IGSCF), built with React and Vite.
+The official website for the International Graduate Student Christian Fellowship (IGSCF), built with React/Vite and Firebase. link to the website: https://igscf.netlify.app/
 
 ## Tech Stack
 
